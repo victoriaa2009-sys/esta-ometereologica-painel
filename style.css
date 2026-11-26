@@ -909,105 +909,230 @@ footer {
         padding: 60px 0;
     }
 
-    /* ============================================================
-    EQUIPE DO PROJETO
-    ============================================================ */
+}
+
+
+/* =========================================================
+   DADOS COLETADOS E TABELAS
+========================================================= */
+
+.data-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 18px;
+
+    color: var(--verde-claro);
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--verde);
+    box-shadow: 0 0 10px rgba(168, 198, 134, 0.45);
+}
+
+.chart-description {
+    margin-top: 5px;
+    color: var(--texto-suave);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.collection-card,
+.comparison-card {
+    margin-top: 25px;
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    background: var(--cartao);
+}
+
+.collection-card h3,
+.comparison-card h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.collection-card > p,
+.comparison-card > p {
+    margin-bottom: 20px;
+
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.comparison-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--borda);
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.comparison-table th {
+    color: var(--verde-claro);
+    font-weight: 600;
+}
+
+.comparison-table td {
+    color: var(--texto-suave);
+}
+
+.collection-card > small,
+.comparison-card > small {
+    display: block;
+    margin-top: 17px;
+
+    color: var(--texto-suave);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.comparison-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 15px;
+}
+
+.comparison-sources a {
+    color: var(--verde-claro);
+    font-size: 12px;
+}
+
+.comparison-sources a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   EQUIPE DO PROJETO
+========================================================= */
+
+.equipe {
+    padding: 80px 8%;
+    background-color: #101b17;
+    text-align: center;
+}
+
+.equipe .titulo-secao {
+    max-width: 650px;
+    margin: 0 auto 40px;
+}
+
+.equipe .subtitulo {
+    color: #9ab99e;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.equipe .titulo-secao h2 {
+    color: #edf3e9;
+    font-size: 2rem;
+    margin: 12px 0;
+}
+
+.equipe .titulo-secao p {
+    color: #b6c4b9;
+    line-height: 1.7;
+}
+
+.equipe-integrantes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.integrante {
+    padding: 25px 15px;
+    border: 1px solid rgba(166, 197, 166, 0.2);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.025);
+    transition: 0.3s;
+}
+
+.integrante:hover {
+    border-color: #8eae91;
+    transform: translateY(-4px);
+}
+
+.integrante span {
+    color: #91b397;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.integrante h3 {
+    color: #edf3e9;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-top: 12px;
+}
+
+.instituicao {
+    color: #91a397;
+    font-size: 0.9rem;
+}
+
+.instituicao p {
+    color: #b6c4b9;
+    margin: 5px 0;
+}
+
+.instituicao span {
+    display: inline-block;
+    margin-top: 10px;
+    color: #91b397;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   AJUSTES RESPONSIVOS DAS NOVAS SEÇÕES
+========================================================= */
+
+@media (max-width: 850px) {
+    .equipe-integrantes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .equipe-integrantes {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     .equipe {
-        padding: 80px 8%;
-        background-color: #101b17;
-        text-align: center;
+        padding: 60px 6%;
     }
 
-    .equipe .titulo-secao {
-        max-width: 650px;
-        margin: 0 auto 40px;
+    .collection-card,
+    .comparison-card {
+        padding: 18px;
     }
 
-    .equipe .subtitulo {
-        color: #9ab99e;
-        font-size: 0.85rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    .equipe .titulo-secao h2 {
-        color: #edf3e9;
-        font-size: 2rem;
-        margin: 12px 0;
-    }
-
-    .equipe .titulo-secao p {
-        color: #b6c4b9;
-        line-height: 1.7;
-    }
-
-    .equipe-integrantes {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 18px;
-        max-width: 1000px;
-        margin: 0 auto 40px;
-    }
-
-    .integrante {
-        padding: 25px 15px;
-        border: 1px solid rgba(166, 197, 166, 0.2);
-        border-radius: 12px;
-        background-color: rgba(255, 255, 255, 0.025);
-        transition: 0.3s;
-    }
-
-    .integrante:hover {
-        border-color: #8eae91;
-        transform: translateY(-4px);
-    }
-
-    .integrante span {
-        color: #91b397;
-        font-size: 0.85rem;
-        letter-spacing: 2px;
-    }
-
-    .integrante h3 {
-        color: #edf3e9;
-        font-size: 1.1rem;
-        font-weight: normal;
-        margin-top: 12px;
-    }
-
-    .instituicao {
-        color: #91a397;
-        font-size: 0.9rem;
-    }
-
-    /* Ajuste para telas menores */
-
-    @media (max-width: 850px) {
-        .equipe-integrantes {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    @media (max-width: 550px) {
-        .equipe-integrantes {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .equipe {
-            padding: 60px 6%;
-        }
-    }
-
-    .instituicao p {
-        color: #b6c4b9;
-        margin: 5px 0;
-    }
-
-    .instituicao span {
-        display: inline-block;
-        margin-top: 10px;
-        color: #91b397;
-        font-size: 0.85rem;
+    .comparison-table th,
+    .comparison-table td {
+        padding: 11px 12px;
     }
 }

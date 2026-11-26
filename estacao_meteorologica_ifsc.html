@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Projeto de desenvolvimento de uma estação meteorológica de baixo custo no IFSC Câmpus Garopaba.">
 
     <title>Estação Meteorológica | IFSC Garopaba</title>
@@ -41,21 +40,19 @@
                 <a href="#aprender">Conteúdos</a>
                 <a href="#estacao">A estação</a>
                 <a href="#atividade">Atividade</a>
+                <a href="#equipe">Equipe</a>
             </nav>
 
         </div>
     </header>
 
-
     <main>
 
         <!-- Apresentação do projeto -->
         <div class="container" id="inicio">
-
             <section class="hero">
 
                 <div>
-
                     <p class="eyebrow">
                         Projeto Integrador · IFSC Câmpus Garopaba
                     </p>
@@ -72,19 +69,15 @@
                     </p>
 
                     <div class="hero-actions">
-
                         <a class="button" href="#dados">
-                            Consultar dados demonstrativos
+                            Consultar dados coletados
                         </a>
 
                         <a class="button secondary" href="#estacao">
                             Conhecer o funcionamento
                         </a>
-
                     </div>
-
                 </div>
-
 
                 <!-- Ilustração da paisagem -->
                 <div class="hero-art" aria-label="Ilustração de céu, sol e paisagem verde">
@@ -99,124 +92,92 @@
                     <div class="art-hill two"></div>
 
                     <div class="art-caption">
-
                         <strong>
                             Estação
                             meteorológica
                         </strong>
 
                         <span>
-                            Projeto Integrador · Informática 2024
+                            Projeto Integrador · Técnico Integrado em Informática
                         </span>
-
                     </div>
 
                 </div>
 
             </section>
-
         </div>
-
 
         <!-- Dados meteorológicos -->
         <section class="content-section weather-section" id="dados">
-
             <div class="container">
 
                 <div class="section-heading">
-
-                    <p class="eyebrow">
-                        Monitoramento atmosférico
-                    </p>
+                    <p class="eyebrow">Monitoramento atmosférico</p>
 
                     <h2>Dados meteorológicos</h2>
 
                     <p>
-                        A estação foi planejada para monitorar três variáveis
-                        atmosféricas: temperatura do ar, umidade relativa
+                        Registros obtidos durante as coletas realizadas no projeto.
+                        As medições contemplam temperatura, umidade relativa do ar
                         e pressão atmosférica.
                     </p>
-
                 </div>
 
-
-                <div class="demo-note">
-                    ● Valores fictícios para demonstração — não são leituras reais
+                <div class="data-status">
+                    <span class="status-dot"></span>
+                    Dados coletados · 829 registros em quatro dias
                 </div>
-
 
                 <div class="weather-grid">
 
                     <article class="weather-card">
-
-                        <span class="metric">Temperatura</span>
-
-                        <strong>23,5 °C</strong>
-
-                        <small>
-                            Exemplo de temperatura do ar
-                        </small>
-
+                        <span class="metric">Temperatura média</span>
+                        <strong>19,9 °C</strong>
+                        <small>Média geral das medições</small>
                     </article>
 
-
                     <article class="weather-card">
-
-                        <span class="metric">Umidade relativa</span>
-
-                        <strong>78%</strong>
-
-                        <small>
-                            Exemplo de umidade do ar
-                        </small>
-
+                        <span class="metric">Umidade relativa média</span>
+                        <strong>65,1%</strong>
+                        <small>Média geral das medições</small>
                     </article>
 
-
                     <article class="weather-card">
-
-                        <span class="metric">Pressão atmosférica</span>
-
-                        <strong>1013 hPa</strong>
-
-                        <small>
-                            Exemplo de pressão atmosférica
-                        </small>
-
+                        <span class="metric">Pressão atmosférica média</span>
+                        <strong>1014,5 hPa</strong>
+                        <small>Média geral das medições</small>
                     </article>
 
                 </div>
 
-
-                <!-- Gráfico demonstrativo -->
+                <!-- Gráfico interativo com as médias diárias -->
                 <div class="chart-card">
 
                     <div class="chart-top">
-
-                        <h3>
-                            Exemplo de variação da temperatura
-                        </h3>
+                        <div>
+                            <h3 id="chartTitle">Temperatura média por dia</h3>
+                            <p class="chart-description">
+                                Selecione uma variável para consultar suas médias diárias.
+                            </p>
+                        </div>
 
                         <label>
-                            <span class="sr-only">Período do gráfico</span>
-
-                            <select class="period-select" id="periodSelect">
-                                <option value="dia">Dia todo</option>
-                                <option value="manha">Manhã</option>
-                                <option value="tarde">Tarde</option>
+                            <span class="sr-only">Variável meteorológica</span>
+                            <select class="period-select" id="variableSelect">
+                                <option value="temperatura">Temperatura</option>
+                                <option value="umidade">Umidade relativa</option>
+                                <option value="pressao">Pressão atmosférica</option>
                             </select>
                         </label>
-
                     </div>
-
 
                     <svg
                         class="chart"
+                        id="weatherChart"
                         viewBox="0 0 700 250"
                         role="img"
-                        aria-label="Gráfico ilustrativo de variação de temperatura"
+                        aria-label="Gráfico das médias diárias das variáveis meteorológicas"
                     >
-
                         <defs>
                             <linearGradient
                                 id="chartGradient"
@@ -239,60 +200,183 @@
                             </linearGradient>
                         </defs>
 
+                        <line class="chart-gridline" x1="55" y1="35" x2="680" y2="35"/>
+                        <line class="chart-gridline" x1="55" y1="90" x2="680" y2="90"/>
+                        <line class="chart-gridline" x1="55" y1="145" x2="680" y2="145"/>
+                        <line class="chart-gridline" x1="55" y1="200" x2="680" y2="200"/>
 
-                        <line class="chart-gridline" x1="45" y1="35" x2="680" y2="35"/>
-                        <line class="chart-gridline" x1="45" y1="90" x2="680" y2="90"/>
-                        <line class="chart-gridline" x1="45" y1="145" x2="680" y2="145"/>
-                        <line class="chart-gridline" x1="45" y1="200" x2="680" y2="200"/>
+                        <text class="chart-label" id="axis1" x="5" y="39"></text>
+                        <text class="chart-label" id="axis2" x="5" y="94"></text>
+                        <text class="chart-label" id="axis3" x="5" y="149"></text>
+                        <text class="chart-label" id="axis4" x="5" y="204"></text>
 
-                        <text class="chart-label" x="8" y="39">30°</text>
-                        <text class="chart-label" x="8" y="94">25°</text>
-                        <text class="chart-label" x="8" y="149">20°</text>
-                        <text class="chart-label" x="8" y="204">15°</text>
+                        <path class="chart-area" id="chartArea"></path>
+                        <path class="chart-line" id="chartLine"></path>
+                        <g id="chartPoints"></g>
 
-
-                        <path
-                            class="chart-area"
-                            id="chartArea"
-                            d="M45 155 L150 135 L255 110 L360 90 L465 72 L570 95 L680 125 L680 200 L45 200 Z"
-                        />
-
-                        <path
-                            class="chart-line"
-                            id="chartLine"
-                            d="M45 155 L150 135 L255 110 L360 90 L465 72 L570 95 L680 125"
-                        />
-
-
-                        <text class="chart-label" x="45" y="230">06h</text>
-                        <text class="chart-label" x="245" y="230">10h</text>
-                        <text class="chart-label" x="445" y="230">14h</text>
-                        <text class="chart-label" x="650" y="230">18h</text>
-
+                        <text class="chart-label" x="55" y="230">27/08</text>
+                        <text class="chart-label" x="260" y="230">28/08</text>
+                        <text class="chart-label" x="465" y="230">10/09</text>
+                        <text class="chart-label" x="650" y="230">15/09</text>
                     </svg>
 
                     <small class="chart-note">
-                        Gráfico demonstrativo, com dados fictícios apenas
-                        para mostrar como as medições poderão ser visualizadas.
+                        O gráfico apresenta a média das medições de cada dia.
+                        Não houve coleta contínua entre essas datas.
                     </small>
 
                 </div>
 
+                <!-- Resumo das coletas -->
+                <div class="collection-card">
+
+                    <h3>Resumo das coletas</h3>
+
+                    <p>
+                        As medições foram realizadas em quatro datas diferentes.
+                        A quantidade de registros variou conforme cada coleta.
+                    </p>
+
+                    <div class="comparison-table-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Quantidade de registros</th>
+                                    <th>Temperatura média</th>
+                                    <th>Umidade média</th>
+                                    <th>Pressão média</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>27/08/2026</td>
+                                    <td>7</td>
+                                    <td>21,3 °C</td>
+                                    <td>66,2%</td>
+                                    <td>1011,8 hPa</td>
+                                </tr>
+
+                                <tr>
+                                    <td>28/08/2026</td>
+                                    <td>40</td>
+                                    <td>19,1 °C</td>
+                                    <td>69,2%</td>
+                                    <td>1010,7 hPa</td>
+                                </tr>
+
+                                <tr>
+                                    <td>10/09/2026</td>
+                                    <td>394</td>
+                                    <td>20,8 °C</td>
+                                    <td>67,1%</td>
+                                    <td>1010,0 hPa</td>
+                                </tr>
+
+                                <tr>
+                                    <td>15/09/2026</td>
+                                    <td>388</td>
+                                    <td>19,2 °C</td>
+                                    <td>62,7%</td>
+                                    <td>1019,6 hPa</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <small>
+                        Médias calculadas a partir dos registros disponíveis em cada data.
+                        Os valores foram arredondados para uma casa decimal.
+                    </small>
+
+                </div>
+
+                <!-- Comparação com a previsão regional -->
+                <div class="comparison-card">
+
+                    <h3>Comparação com a previsão regional</h3>
+
+                    <p>
+                        As médias de temperatura do sensor dos dias 27 e 28 de agosto
+                        foram comparadas com as faixas de previsão divulgadas pela
+                        Defesa Civil de Santa Catarina. Essa comparação serve como
+                        referência regional: a previsão não representa uma medição
+                        feita exatamente no mesmo local e horário do sensor.
+                    </p>
+
+                    <div class="comparison-table-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Média do sensor</th>
+                                    <th>Faixa prevista</th>
+                                    <th>Umidade média do sensor</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>27/08/2026</td>
+                                    <td>21,3 °C</td>
+                                    <td>18 °C a 25 °C</td>
+                                    <td>66,2%</td>
+                                </tr>
+
+                                <tr>
+                                    <td>28/08/2026</td>
+                                    <td>19,1 °C</td>
+                                    <td>21 °C a 29 °C</td>
+                                    <td>69,2%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <small>
+                        A estação do INMET utilizada como referência regional na planilha
+                        é Florianópolis (A806). As faixas oficiais são previsões para
+                        o litoral de Santa Catarina.
+                    </small>
+
+                    <div class="comparison-sources">
+                        <a
+                            href="https://www.defesacivil.sc.gov.br/2026/08/27/previsao-para-os-proximos-5-dias-27-08-3/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Previsão da Defesa Civil — 27/08/2026
+                        </a>
+
+                        <a
+                            href="https://www.defesacivil.sc.gov.br/2026/08/28/previsao-para-os-proximos-5-dias-28-08-3/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Previsão da Defesa Civil — 28/08/2026
+                        </a>
+
+                        <a
+                            href="https://portal.inmet.gov.br/servicos/bdmep-dados-hist%C3%B3ricos"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            INMET — dados históricos
+                        </a>
+                    </div>
+
+                </div>
+
             </div>
-
         </section>
-
 
         <!-- Conteúdos educativos -->
         <section class="content-section" id="aprender">
-
             <div class="container">
 
                 <div class="section-heading">
-
-                    <p class="eyebrow">
-                        Conteúdo educativo
-                    </p>
+                    <p class="eyebrow">Conteúdo educativo</p>
 
                     <h2>Conteúdos de meteorologia</h2>
 
@@ -301,14 +385,11 @@
                         meteorológicos e sobre a interpretação das variáveis
                         monitoradas pela estação.
                     </p>
-
                 </div>
-
 
                 <div class="topic-grid">
 
                     <article class="topic-card">
-
                         <div class="topic-icon">🌦</div>
 
                         <h3>Tempo e clima</h3>
@@ -321,12 +402,9 @@
                         <button class="text-button" data-topic="tempo">
                             Consultar conteúdo →
                         </button>
-
                     </article>
 
-
                     <article class="topic-card">
-
                         <div class="topic-icon">🌡</div>
 
                         <h3>Variáveis atmosféricas</h3>
@@ -339,12 +417,9 @@
                         <button class="text-button" data-topic="variaveis">
                             Consultar conteúdo →
                         </button>
-
                     </article>
 
-
                     <article class="topic-card">
-
                         <div class="topic-icon">📈</div>
 
                         <h3>Como interpretar os dados?</h3>
@@ -357,26 +432,18 @@
                         <button class="text-button" data-topic="dados">
                             Consultar conteúdo →
                         </button>
-
                     </article>
 
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- Funcionamento da estação -->
         <section class="content-section" id="estacao">
-
             <div class="container">
 
                 <div class="section-heading">
-
-                    <p class="eyebrow">
-                        Desenvolvimento do projeto
-                    </p>
+                    <p class="eyebrow">Desenvolvimento do projeto</p>
 
                     <h2>Funcionamento da estação</h2>
 
@@ -385,14 +452,11 @@
                         computacionais para realizar as medições, processar
                         as informações e armazená-las para consulta e análise.
                     </p>
-
                 </div>
-
 
                 <div class="process">
 
                     <article class="process-step">
-
                         <span class="number">1</span>
 
                         <h3>Sensores</h3>
@@ -401,12 +465,9 @@
                             Realizam medições de variáveis como temperatura,
                             umidade e pressão.
                         </p>
-
                     </article>
 
-
                     <article class="process-step">
-
                         <span class="number">2</span>
 
                         <h3>Raspberry Pi</h3>
@@ -415,12 +476,9 @@
                             Recebe as informações dos sensores e executa
                             o processamento.
                         </p>
-
                     </article>
 
-
                     <article class="process-step">
-
                         <span class="number">3</span>
 
                         <h3>Banco de dados</h3>
@@ -429,12 +487,9 @@
                             Armazena as medições para consulta,
                             organização e análise.
                         </p>
-
                     </article>
 
-
                     <article class="process-step">
-
                         <span class="number">4</span>
 
                         <h3>Visualização dos dados</h3>
@@ -443,16 +498,13 @@
                             Apresenta os dados de forma acessível
                             para a comunidade.
                         </p>
-
                     </article>
 
                 </div>
 
-
                 <div class="two-columns">
 
                     <article class="info-card">
-
                         <h3>Objetivo da instalação no campus</h3>
 
                         <p>
@@ -461,12 +513,9 @@
                             para o estudo do microclima local e para
                             atividades de ensino, pesquisa e extensão.
                         </p>
-
                     </article>
 
-
                     <article class="info-card">
-
                         <h3>Integração entre informática e meteorologia</h3>
 
                         <p>
@@ -475,28 +524,20 @@
                             registros em banco de dados e análise de
                             informações meteorológicas.
                         </p>
-
                     </article>
 
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- Atividade interativa -->
         <section class="content-section" id="atividade">
-
             <div class="container">
 
                 <div class="quiz-box">
 
                     <div>
-
-                        <p class="eyebrow">
-                            Atividade interativa
-                        </p>
+                        <p class="eyebrow">Atividade interativa</p>
 
                         <h2>Tempo atmosférico e clima</h2>
 
@@ -504,9 +545,7 @@
                             Responda à questão para revisar a diferença
                             entre os dois conceitos.
                         </p>
-
                     </div>
-
 
                     <div class="quiz-question">
 
@@ -541,21 +580,21 @@
                         ></p>
 
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
     </main>
 
-        <!-- EQUIPE DO PROJETO -->
+    <!-- Equipe do projeto -->
     <section class="equipe" id="equipe">
         <div class="container">
+
             <div class="titulo-secao">
                 <span class="subtitulo">Projeto Integrador</span>
+
                 <h2>Equipe do projeto</h2>
+
                 <p>
                     Desenvolvimento da Estação Meteorológica de Baixo Custo
                     no IFSC Câmpus Garopaba.
@@ -563,6 +602,7 @@
             </div>
 
             <div class="equipe-integrantes">
+
                 <div class="integrante">
                     <span>01</span>
                     <h3>Beatriz</h3>
@@ -587,6 +627,7 @@
                     <span>05</span>
                     <h3>Victória</h3>
                 </div>
+
             </div>
 
             <div class="instituicao">
@@ -594,12 +635,12 @@
                 <p>Câmpus Garopaba · Técnico Integrado em Informática</p>
                 <span>Projeto Integrador</span>
             </div>
+
         </div>
     </section>
 
     <!-- Rodapé -->
     <footer>
-
         <div class="container footer-inner">
 
             <span>
@@ -611,9 +652,7 @@
             </span>
 
         </div>
-
     </footer>
-
 
     <!-- Janela dos conteúdos educativos -->
     <div
@@ -623,7 +662,6 @@
         aria-modal="true"
         aria-labelledby="modalTitle"
     >
-
         <div class="modal-content">
 
             <button
@@ -635,13 +673,10 @@
             </button>
 
             <h2 id="modalTitle"></h2>
-
             <p id="modalText"></p>
 
         </div>
-
     </div>
-
 
     <!-- Interações da página -->
     <script>
@@ -651,64 +686,129 @@
         const navLinks = document.getElementById("navLinks");
 
         menuToggle.addEventListener("click", () => {
-
             const menuAberto = navLinks.classList.toggle("open");
-
             menuToggle.setAttribute("aria-expanded", menuAberto);
-
         });
-
 
         // Fecha o menu depois que uma seção é selecionada.
         navLinks.querySelectorAll("a").forEach((link) => {
-
             link.addEventListener("click", () => {
-
                 navLinks.classList.remove("open");
-
                 menuToggle.setAttribute("aria-expanded", "false");
-
             });
-
         });
 
-
-        // Dados ilustrativos usados somente para demonstrar o gráfico.
-        const dadosGrafico = {
-
-            dia: {
-                linha: "M45 155 L150 135 L255 110 L360 90 L465 72 L570 95 L680 125",
-                area: "M45 155 L150 135 L255 110 L360 90 L465 72 L570 95 L680 125 L680 200 L45 200 Z"
+        // Médias diárias calculadas a partir dos registros coletados.
+        const dadosMeteorologicos = {
+            temperatura: {
+                titulo: "Temperatura média por dia",
+                unidade: "°C",
+                valores: [21.3, 19.1, 20.8, 19.2]
             },
 
-            manha: {
-                linha: "M45 165 L150 145 L255 120 L360 100",
-                area: "M45 165 L150 145 L255 120 L360 100 L360 200 L45 200 Z"
+            umidade: {
+                titulo: "Umidade relativa média por dia",
+                unidade: "%",
+                valores: [66.2, 69.2, 67.1, 62.7]
             },
 
-            tarde: {
-                linha: "M45 85 L150 72 L255 95 L360 125",
-                area: "M45 85 L150 72 L255 95 L360 125 L360 200 L45 200 Z"
+            pressao: {
+                titulo: "Pressão atmosférica média por dia",
+                unidade: "hPa",
+                valores: [1011.8, 1010.7, 1010.0, 1019.6]
             }
-
         };
 
-
-        const periodoSelect = document.getElementById("periodSelect");
+        const variavelSelect = document.getElementById("variableSelect");
+        const tituloGrafico = document.getElementById("chartTitle");
         const linhaGrafico = document.getElementById("chartLine");
         const areaGrafico = document.getElementById("chartArea");
+        const pontosGrafico = document.getElementById("chartPoints");
 
+        const eixosGrafico = [
+            document.getElementById("axis1"),
+            document.getElementById("axis2"),
+            document.getElementById("axis3"),
+            document.getElementById("axis4")
+        ];
 
-        periodSelect.addEventListener("change", () => {
+        const posicoesX = [55, 260, 465, 670];
 
-            const selecionado = dadosGrafico[periodoSelect.value];
+        // Desenha novamente o gráfico de acordo com a variável selecionada.
+        function atualizarGrafico() {
+            const dados = dadosMeteorologicos[variavelSelect.value];
+            const valores = dados.valores;
 
-            linhaGrafico.setAttribute("d", selecionado.linha);
+            tituloGrafico.textContent = dados.titulo;
 
-            areaGrafico.setAttribute("d", selecionado.area);
+            const minimo = Math.min(...valores);
+            const maximo = Math.max(...valores);
+            const intervalo = maximo - minimo;
+            const margem = intervalo === 0 ? 1 : intervalo * 0.2;
 
-        });
+            const limiteMinimo = minimo - margem;
+            const limiteMaximo = maximo + margem;
 
+            const posicoesY = valores.map((valor) => {
+                return 200 - (
+                    (valor - limiteMinimo) /
+                    (limiteMaximo - limiteMinimo)
+                ) * 165;
+            });
+
+            const pontos = posicoesY.map((y, indice) => {
+                return `${posicoesX[indice]} ${y}`;
+            });
+
+            const caminho = "M" + pontos.join(" L");
+
+            linhaGrafico.setAttribute("d", caminho);
+
+            areaGrafico.setAttribute(
+                "d",
+                `${caminho} L${posicoesX[3]} 200 L${posicoesX[0]} 200 Z`
+            );
+
+            // Atualiza os valores do eixo vertical.
+            eixosGrafico.forEach((eixo, indice) => {
+                const valor = limiteMaximo -
+                    (indice / 3) * (limiteMaximo - limiteMinimo);
+
+                eixo.textContent = valor.toFixed(1);
+            });
+
+            // Atualiza os pontos e seus valores de consulta.
+            pontosGrafico.innerHTML = "";
+
+            valores.forEach((valor, indice) => {
+                const circulo = document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "circle"
+                );
+
+                circulo.setAttribute("cx", posicoesX[indice]);
+                circulo.setAttribute("cy", posicoesY[indice]);
+                circulo.setAttribute("r", "5");
+                circulo.setAttribute("fill", "#d7e9a6");
+
+                const descricao = document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "title"
+                );
+
+                descricao.textContent =
+                    `${valor.toFixed(1)} ${dados.unidade}`;
+
+                circulo.appendChild(descricao);
+                pontosGrafico.appendChild(circulo);
+            });
+        }
+
+        // Atualiza o gráfico quando a variável é alterada.
+        variavelSelect.addEventListener("change", atualizarGrafico);
+
+        // Exibe temperatura como variável inicial.
+        atualizarGrafico();
 
         // Conteúdos educativos exibidos em janelas.
         const conteudos = {
@@ -733,90 +833,60 @@
 
         };
 
-
         const modal = document.getElementById("topicModal");
         const modalTitle = document.getElementById("modalTitle");
         const modalText = document.getElementById("modalText");
         const modalClose = document.getElementById("modalClose");
 
-
         document.querySelectorAll("[data-topic]").forEach((botao) => {
-
             botao.addEventListener("click", () => {
-
                 const conteudo = conteudos[botao.dataset.topic];
 
                 modalTitle.textContent = conteudo.titulo;
-
                 modalText.textContent = conteudo.texto;
 
                 modal.classList.add("open");
-
                 modalClose.focus();
-
             });
-
         });
-
 
         // Fecha a janela de conteúdo.
         function fecharModal() {
-
             modal.classList.remove("open");
-
         }
-
 
         modalClose.addEventListener("click", fecharModal);
 
-
         modal.addEventListener("click", (evento) => {
-
             if (evento.target === modal) {
-
                 fecharModal();
-
             }
-
         });
-
 
         document.addEventListener("keydown", (evento) => {
-
             if (evento.key === "Escape") {
-
                 fecharModal();
-
             }
-
         });
-
 
         // Atividade interativa: mostra um retorno de acordo com a resposta.
         const retornoAtividade = document.getElementById("quizFeedback");
 
         document.querySelectorAll(".quiz-option").forEach((opcao) => {
-
             opcao.addEventListener("click", () => {
 
                 if (opcao.dataset.answer === "correta") {
-
                     retornoAtividade.textContent =
                         "Isso mesmo! O tempo descreve as condições de um momento; o clima reúne padrões observados durante longos períodos.";
-
                 } else {
-
                     retornoAtividade.textContent =
                         "Não é bem assim. Pense na diferença entre uma condição atmosférica de hoje e os padrões observados durante muitos anos.";
-
                 }
 
             });
-
         });
 
     </script>
 
 </body>
-
 </html>
