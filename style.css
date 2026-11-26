@@ -1,0 +1,912 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --fundo: #101a16;
+    --fundo-secundario: #17251e;
+    --cartao: #1d3026;
+    --verde: #a8c686;
+    --verde-claro: #d7e9a6;
+    --texto: #edf2e9;
+    --texto-suave: #b8c8bb;
+    --borda: rgba(215, 233, 166, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16, 26, 22, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--borda);
+}
+
+.nav-wrap {
+    width: min(1120px, 90%);
+    min-height: 76px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+    background: rgba(168, 198, 134, 0.13);
+
+    color: var(--verde-claro);
+    font-size: 23px;
+}
+
+.brand small {
+    display: block;
+    color: var(--texto-suave);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--texto-suave);
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--verde-claro);
+}
+
+.menu-toggle {
+    display: none;
+
+    padding: 9px 15px;
+
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+
+    background: var(--cartao);
+    color: var(--texto);
+}
+
+
+/* =========================================================
+   APRESENTAÇÃO INICIAL
+========================================================= */
+
+.hero {
+    min-height: 540px;
+    padding: 75px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 0.95fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.eyebrow {
+    margin-bottom: 13px;
+
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 600px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.12;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--verde-claro);
+}
+
+.hero-copy {
+    max-width: 520px;
+    margin-top: 22px;
+
+    color: var(--texto-suave);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 19px;
+
+    border: 1px solid var(--verde);
+    border-radius: 8px;
+
+    background: var(--verde);
+    color: #142019;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: var(--verde-claro);
+    border-color: var(--verde-claro);
+    transform: translateY(-2px);
+}
+
+.button.secondary {
+    background: transparent;
+    color: var(--verde-claro);
+}
+
+.button.secondary:hover {
+    background: rgba(168, 198, 134, 0.1);
+}
+
+
+/* =========================================================
+   ILUSTRAÇÃO DA PAISAGEM
+========================================================= */
+
+.hero-art {
+    position: relative;
+    min-height: 370px;
+    overflow: hidden;
+
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #294b43 0%,
+            #527b69 55%,
+            #a4b887 100%
+        );
+}
+
+.art-label {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    z-index: 5;
+
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.art-sun {
+    position: absolute;
+    top: 65px;
+    right: 85px;
+
+    width: 78px;
+    height: 78px;
+
+    border-radius: 50%;
+    background: #e9d99a;
+
+    box-shadow: 0 0 60px rgba(233, 217, 154, 0.3);
+}
+
+.art-cloud {
+    position: absolute;
+    top: 115px;
+    left: 80px;
+
+    width: 110px;
+    height: 35px;
+
+    border-radius: 30px;
+    background: rgba(238, 244, 229, 0.8);
+}
+
+.art-cloud::before,
+.art-cloud::after {
+    content: "";
+    position: absolute;
+
+    border-radius: 50%;
+    background: inherit;
+}
+
+.art-cloud::before {
+    width: 48px;
+    height: 48px;
+    top: -22px;
+    left: 18px;
+}
+
+.art-cloud::after {
+    width: 55px;
+    height: 55px;
+    top: -28px;
+    right: 15px;
+}
+
+.art-hill {
+    position: absolute;
+    bottom: -100px;
+    left: -70px;
+
+    width: 440px;
+    height: 280px;
+
+    border-radius: 50%;
+    background: #527b53;
+    transform: rotate(-12deg);
+}
+
+.art-hill.two {
+    left: auto;
+    right: -120px;
+    bottom: -125px;
+
+    width: 480px;
+    height: 320px;
+
+    background: #294c38;
+    transform: rotate(12deg);
+}
+
+.art-caption {
+    position: absolute;
+    left: 28px;
+    bottom: 25px;
+    z-index: 4;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.art-caption strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.art-caption span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.content-section {
+    padding: 85px 0;
+}
+
+.weather-section {
+    background: var(--fundo-secundario);
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2,
+.quiz-box h2 {
+    margin-bottom: 13px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(29px, 4vw, 39px);
+    line-height: 1.2;
+}
+
+.section-heading > p:last-child {
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DADOS METEOROLÓGICOS
+========================================================= */
+
+.demo-note {
+    margin-bottom: 18px;
+
+    color: #d9dca5;
+    font-size: 12px;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.weather-card {
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    background: var(--cartao);
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.metric {
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.weather-card strong {
+    color: var(--verde-claro);
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+}
+
+.weather-card small {
+    color: var(--texto-suave);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   GRÁFICO
+========================================================= */
+
+.chart-card {
+    margin-top: 25px;
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    background: var(--cartao);
+}
+
+.chart-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.chart-top h3 {
+    font-size: 16px;
+}
+
+.period-select {
+    padding: 9px 12px;
+
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+
+    background: #24382d;
+    color: var(--texto);
+}
+
+.chart {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.chart-gridline {
+    stroke: rgba(215, 233, 166, 0.15);
+    stroke-width: 1;
+}
+
+.chart-label {
+    fill: var(--texto-suave);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+}
+
+.chart-area {
+    fill: url(#chartGradient);
+}
+
+.chart-line {
+    fill: none;
+    stroke: var(--verde-claro);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.chart-note {
+    display: block;
+    margin-top: 12px;
+    color: var(--texto-suave);
+    font-size: 11px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CONTEÚDOS EDUCATIVOS
+========================================================= */
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.topic-card {
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    background: var(--cartao);
+
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(215, 233, 166, 0.4);
+}
+
+.topic-icon {
+    margin-bottom: 17px;
+    font-size: 30px;
+}
+
+.topic-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.topic-card p {
+    min-height: 90px;
+    margin-bottom: 18px;
+
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.text-button {
+    padding: 0;
+    border: none;
+
+    background: transparent;
+    color: var(--verde-claro);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.text-button:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   FUNCIONAMENTO DA ESTAÇÃO
+========================================================= */
+
+#estacao {
+    background: var(--fundo-secundario);
+}
+
+.process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.process-step {
+    position: relative;
+    padding: 23px;
+
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+
+    background: var(--cartao);
+}
+
+.number {
+    display: grid;
+    place-items: center;
+
+    width: 35px;
+    height: 35px;
+    margin-bottom: 17px;
+
+    border-radius: 50%;
+
+    background: rgba(168, 198, 134, 0.16);
+    color: var(--verde-claro);
+
+    font-weight: 700;
+}
+
+.process-step h3 {
+    margin-bottom: 9px;
+    font-size: 16px;
+}
+
+.process-step p {
+    color: var(--texto-suave);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.info-card {
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+
+    background: var(--cartao);
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.info-card p {
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ATIVIDADE INTERATIVA
+========================================================= */
+
+.quiz-box {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 45px;
+
+    padding: 35px;
+
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+
+    background: var(--cartao);
+}
+
+.quiz-box > div:first-child p:last-child {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.quiz-question h3 {
+    margin-bottom: 17px;
+    font-size: 16px;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+
+    background: #263a2f;
+    color: var(--texto);
+
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.5;
+
+    transition: 0.2s;
+}
+
+.quiz-option:hover {
+    border-color: var(--verde);
+    background: #304938;
+}
+
+.quiz-feedback {
+    min-height: 25px;
+    margin-top: 17px;
+
+    color: var(--verde-claro);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   JANELAS DOS CONTEÚDOS
+========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+
+    width: min(520px, 100%);
+    padding: 35px;
+
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+
+    background: var(--cartao);
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+}
+
+.modal-content p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+    color: var(--texto);
+
+    font-size: 27px;
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+footer {
+    padding: 25px 0;
+
+    border-top: 1px solid var(--borda);
+    background: #0c1511;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--texto-suave);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 55px 0;
+    }
+
+    .hero-art {
+        min-height: 330px;
+    }
+
+    .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quiz-box {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .nav-wrap {
+        min-height: 68px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 10px 5% 18px;
+
+        border-bottom: 1px solid var(--borda);
+        background: var(--fundo);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 0;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .hero-art {
+        min-height: 280px;
+    }
+
+    .weather-grid,
+    .topic-grid,
+    .process,
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .topic-card p {
+        min-height: auto;
+    }
+
+    .chart-card {
+        padding: 17px;
+    }
+
+    .chart-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .quiz-box {
+        padding: 23px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+}
