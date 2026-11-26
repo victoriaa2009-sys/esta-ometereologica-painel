@@ -909,4 +909,105 @@ footer {
         padding: 60px 0;
     }
 
+    /* ============================================================
+    EQUIPE DO PROJETO
+    ============================================================ */
+
+    .equipe {
+        padding: 80px 8%;
+        background-color: #101b17;
+        text-align: center;
+    }
+
+    .equipe .titulo-secao {
+        max-width: 650px;
+        margin: 0 auto 40px;
+    }
+
+    .equipe .subtitulo {
+        color: #9ab99e;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .equipe .titulo-secao h2 {
+        color: #edf3e9;
+        font-size: 2rem;
+        margin: 12px 0;
+    }
+
+    .equipe .titulo-secao p {
+        color: #b6c4b9;
+        line-height: 1.7;
+    }
+
+    .equipe-integrantes {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        max-width: 1000px;
+        margin: 0 auto 40px;
+    }
+
+    .integrante {
+        padding: 25px 15px;
+        border: 1px solid rgba(166, 197, 166, 0.2);
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.025);
+        transition: 0.3s;
+    }
+
+    .integrante:hover {
+        border-color: #8eae91;
+        transform: translateY(-4px);
+    }
+
+    .integrante span {
+        color: #91b397;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+    }
+
+    .integrante h3 {
+        color: #edf3e9;
+        font-size: 1.1rem;
+        font-weight: normal;
+        margin-top: 12px;
+    }
+
+    .instituicao {
+        color: #91a397;
+        font-size: 0.9rem;
+    }
+
+    /* Ajuste para telas menores */
+
+    @media (max-width: 850px) {
+        .equipe-integrantes {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 550px) {
+        .equipe-integrantes {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .equipe {
+            padding: 60px 6%;
+        }
+    }
+
+    .instituicao p {
+        color: #b6c4b9;
+        margin: 5px 0;
+    }
+
+    .instituicao span {
+        display: inline-block;
+        margin-top: 10px;
+        color: #91b397;
+        font-size: 0.85rem;
+    }
 }
